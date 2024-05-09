@@ -237,9 +237,6 @@ const genFunc = <T, U>(n:T, m:U): object => {
 genFunc<number, string>(2,"3");
 
 
-// const StringZodSchema = z.string();
-// type finalSchemaType = z.infer<typeof StringZodSchema>;
-
 
 
 
