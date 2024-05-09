@@ -4,6 +4,10 @@ SQL databases are traditionally used in applications where data integrity, consi
 
 NoSQL databases are preferred in scenarios where high scalability, flexibility, and performance are required. This includes web applications dealing with large volumes of data, real-time analytics, IoT applications, and applications with evolving or dynamic schemas.
 
+
+
+
+
 **SQL Injection**
 
 - Definition: SQL injection is a security vulnerability.
@@ -13,6 +17,9 @@ NoSQL databases are preferred in scenarios where high scalability, flexibility, 
 - Consequences: Can lead to unauthorized data access, data leakage, data manipulation, or complete system compromise.
 - Preventive Measures: Use parameterized queries, input validation, and escape special characters to mitigate the risk.
 
+
+
+
 **ORMs**
 
 - Simpler Syntax: ORMs offer an easier way to interact with databases by providing a simplified syntax, reducing the need for complex SQL queries.
@@ -20,6 +27,11 @@ NoSQL databases are preferred in scenarios where high scalability, flexibility, 
 - Portability: This portability allows developers to switch between different database systems with minimal code changes, providing flexibility and reducing vendor lock-in.
 - Security: ORMs often include security features such as parameterized queries and input sanitization to prevent common vulnerabilities like SQL injection attacks.
 - Automatic Migrations: Automatically synchronize changes in the codebase with the database schema, ensuring consistency and reducing manual intervention.
+
+
+
+
+
 
 **Serverless Architecture**
 
@@ -46,6 +58,10 @@ Drawbacks:
 - Cold start problem
 - Limited control over infrastructure
 
+
+
+
+
 **Cloudflare**
 
 - Cloudflare Workers have their own runtime environment.
@@ -62,6 +78,12 @@ Why?
 
 Hono : A library to mimic Express like functionalities in Cloudflare Worker Environment....
 
+
+
+
+
+
+
 **AWS**
 
 - Rent Servers
@@ -69,6 +91,7 @@ Hono : A library to mimic Express like functionalities in Cloudflare Worker Envi
 - Upload Media
 - Auto scaling
 - Create Kubernetes Cluster
+
 
 **Deploying BackEnd - AWS EC2 Instance SetUp**
 
@@ -140,6 +163,10 @@ Hono : A library to mimic Express like functionalities in Cloudflare Worker Envi
    - Check the status of the pm2 process:
      pm2 list
    - Verify that your Node.js application is listed and running.
+
+
+
+
 
 
 **Deploying FrontEnd - S3 Bucket and (CDN) CloudFront SetUp**
