@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 **SQL vs NoSQL**
 
 SQL databases are traditionally used in applications where data integrity, consistency, and complex queries are crucial. This includes financial applications, ERP systems, and applications with well-defined schemas.
@@ -193,3 +194,6 @@ Hono : A library to mimic Express like functionalities in Cloudflare Worker Envi
 
 15. Test Your Custom Domain URL:
     - Test your custom domain URL to ensure that the frontend application is accessible and functioning correctly.
+=======
+
+>>>>>>> 59f674abadc66822cbaa53d107fd1259cb819fcc
