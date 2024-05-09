@@ -1,3 +1,6 @@
+
+//----------------------------------------------------------MongoDB------------------------------------------------------
+
 // import { Request, Response } from 'express';
 // import User from '../models/userModel.js';
 
@@ -66,8 +69,51 @@
 //----------------------------------------------Prisma----------------------------------
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
+import { z } from 'zod';
 
 const prisma = new PrismaClient();
+
+// Zod is primarily used for data validation and schema definition in TypeScript applications, offering:
+
+// - Input Validation
+// - API Request Validation
+// - Form Validation
+// - Database Model Validation
+// - Configuration Validation
+// - Type Inference
+
+
+//Here it is used for valdating creatUser request for time-being..
+
+// Create a new user
+const UserSchema = z.object({
+  username: z.string().min(3).max(30), // Example validation rules
+  email: z.string().email(),
+});
+
+// Define the type for the user input data using Zod inference
+type CreateUserType = z.infer<typeof UserSchema>;
+
+export const createUser = async (req: Request, res: Response) => {
+  // const { username, email } = req.body;
+
+  // Validate the user input data against the Zod schema
+  try {
+    const validatedInput: CreateUserType = UserSchema.parse(req.body);
+
+    // If validation passes, create the new user in the database
+    const newUser = await prisma.user.create({
+      data: validatedInput,
+    });
+
+    return res.status(201).json({ data: newUser });
+  } catch (error) {
+    console.error('Error creating user:', error); // Logging the error
+
+    // If validation fails, return a 400 error response with details
+    return res.status(400).json({ error: 'Invalid user data', details: error });
+  }
+};
 
 // Get all users
 export const getAllUsers = async (req: Request, res: Response) => {
@@ -103,19 +149,8 @@ export const getUserById = async (req: Request, res: Response) => {
   }
 };
 
-// Create a new user
-export const createUser = async (req: Request, res: Response) => {
-  const { username, email } = req.body;
-  try {
-    const newUser = await prisma.user.create({
-      data: { username, email },
-    });
-    return res.status(201).json({ data: newUser });
-  } catch (error) {
-    console.error('Error creating user:', error); // Logging the error
-    return res.status(500).json({ error: 'Internal server error' });
-  }
-};
+
+
 
 // Update user by ID
 export const updateUserById = async (req: Request, res: Response) => {
