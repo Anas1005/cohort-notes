@@ -1,4 +1,4 @@
-import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { combineReducers, configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 
@@ -34,9 +34,13 @@ const counterSlice = createSlice({
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
 // Define root reducer
-const rootReducer = counterSlice.reducer;
+const counterReducer = counterSlice.reducer;
 
 // Create Redux store
+const rootReducer = combineReducers({
+  counter: counterReducer
+})
+
 const store = configureStore({
   reducer: rootReducer,
 });
@@ -54,12 +58,12 @@ const Redux: React.FC = () => {
 // Counter component
 const Counter: React.FC = () => {
   const dispatch = useDispatch();
-  const count = useSelector((state: { counter: CounterStateType }) => state.counter.value);
+  const {value} = useSelector((state: { counter: CounterStateType }) => state.counter);
 
   return (
     <div>
       <h2>Counter</h2>
-      <p>Count: {count}</p>
+      <p>Count: {value}</p>
       <button onClick={() => dispatch(increment())}>Increment</button>
       <button onClick={() => dispatch(decrement())}>Decrement</button>
       <button onClick={() => dispatch(incrementByAmount(5))}>Increment by 5</button>

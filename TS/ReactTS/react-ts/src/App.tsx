@@ -82,8 +82,8 @@ const App: React.FC = () => {
   return (
     <div>
       {/* <h1>React with TypeScript Example</h1> */}
-       <Context/>
-       {/* <Redux/> */}
+       {/* <Context/> */}
+       <Redux/>
     </div>
   );
 };
