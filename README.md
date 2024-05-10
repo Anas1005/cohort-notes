@@ -237,24 +237,44 @@ Hono : A library to mimic Express like functionalities in Cloudflare Worker Envi
 2. **Opinionated:** Next.js follows a specific set of conventions and opinions, which may limit flexibility for developers who prefer more customization options.
 
 
-# Client-side Data Fetching vs. Server-side Data Fetching
+
+# Client-side Data Fetching vs. Server-side Data Fetching vs Static Site Generation
 
 ## Client-side Data Fetching
 
-Client-side data fetching fetches your data after the page has been rendered. It is useful if:
-- The contents of your page are always changing
-- Your page doesn’t require SEO indexing
-- Your data doesn’t need to be pre-rendered
-- Your data doesn’t require initial page-load performance
-- The data transferred isn’t sensitive e.g., exposing your API keys or access token to clients
+ ![Client-side Data Fetching](image.png)
+
+- Fetches data after page rendering.
+- Useful for dynamic content.
+- No SEO indexing required.
+- Data not pre-rendered.
+- Initial page-load performance may be affected.
+- Not suitable for sensitive data transfer.
+
+
 
 ## Server-side Data Fetching
 
-Server-side data fetching fetches your data before the page is rendered. With the Next.js 13.4 stable release of the App Router, you don’t have to use getServerSideProps or getStaticProps to fetch data from the server. You can simply fetch data from anywhere on the page.
+![Server-side Data Fetching](image-1.png)
 
-Pre-rendering your data is always the best solution for SEO performance because it allows your page to be indexed. The beautiful thing about client-side and server-side fetching in Next.js is the fact that they can coexist in a project, and not just that — they can coexist on a page, as well. So for pages where you’d want data to be indexed by search engines like blog pages, etc., consider fetching the data on the server side.
+- Fetches data before page rendering.
+- Best for SEO indexing.
+- Allows pre-rendering of data.
+- Improved initial page-load performance.
+- Can coexist with client-side fetching.
+- Suitable for pages requiring search engine indexing.
 
-![alt text](image.png)
+
+## Static Site Generation (SSG)
+
+- Pre-renders pages at build time.
+- Offers improved performance and SEO.
+- Ideal for content-heavy websites.
+- Does not require server-side rendering on each request.
+- Enhances user experience with faster page loads.
+- Useful mainly when the page content is same for almost every user.
+
+
 
 # Server Actions in Next.js
 
