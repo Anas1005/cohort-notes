@@ -254,6 +254,7 @@ Server-side data fetching fetches your data before the page is rendered. With th
 
 Pre-rendering your data is always the best solution for SEO performance because it allows your page to be indexed. The beautiful thing about client-side and server-side fetching in Next.js is the fact that they can coexist in a project, and not just that — they can coexist on a page, as well. So for pages where you’d want data to be indexed by search engines like blog pages, etc., consider fetching the data on the server side.
 
+![alt text](image.png)
 
 # Server Actions in Next.js
 
