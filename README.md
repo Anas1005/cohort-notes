@@ -218,7 +218,7 @@ Hono : A library to mimic Express like functionalities in Cloudflare Worker Envi
 
 3. **SEO Optimization:** Initial HTML fetched on request often lacks meaningful content, impacting search engine optimization (SEO) efforts.
 
-4. **Waterfalling Problem:** React applications may suffer from the waterfalling problem, where the dependence of one request on previous requests can lead to inefficient loading times.
+4. **Waterfalling Problem:** React applications may suffer from the waterfalling problem, where a request cannot be initiated until the repsonse of previous request is served which leads to inefficient loading times.
 
 ## Next.js Offerings
 
@@ -235,3 +235,72 @@ Hono : A library to mimic Express like functionalities in Cloudflare Worker Envi
 1. **Server Dependency:** Next.js applications cannot be distributed via a Content Delivery Network (CDN) alone, as they require a server for SSR. This server dependency can be costly to maintain at large scales.
 
 2. **Opinionated:** Next.js follows a specific set of conventions and opinions, which may limit flexibility for developers who prefer more customization options.
+
+
+# Client-side Data Fetching vs. Server-side Data Fetching
+
+## Client-side Data Fetching
+
+Client-side data fetching fetches your data after the page has been rendered. It is useful if:
+- The contents of your page are always changing
+- Your page doesn’t require SEO indexing
+- Your data doesn’t need to be pre-rendered
+- Your data doesn’t require initial page-load performance
+- The data transferred isn’t sensitive e.g., exposing your API keys or access token to clients
+
+## Server-side Data Fetching
+
+Server-side data fetching fetches your data before the page is rendered. With the Next.js 13.4 stable release of the App Router, you don’t have to use getServerSideProps or getStaticProps to fetch data from the server. You can simply fetch data from anywhere on the page.
+
+Pre-rendering your data is always the best solution for SEO performance because it allows your page to be indexed. The beautiful thing about client-side and server-side fetching in Next.js is the fact that they can coexist in a project, and not just that — they can coexist on a page, as well. So for pages where you’d want data to be indexed by search engines like blog pages, etc., consider fetching the data on the server side.
+
+
+# Server Actions in Next.js
+
+## Purpose and Functionality
+
+Server actions simplify mutation handling by serving as a mechanism for performing POST requests without the need for explicit API routes. They abstract away the complexity of setting up API routes and route handlers, reducing boilerplate code.
+
+## Advantages
+
+- **Ease of Use:** Eliminates the need for creating API routes and reduces the amount of boilerplate code required.
+- **CSRF Protection:** Offers CSRF protection by default, enhancing security.
+- **Type Safety and Validation:** Provides type safety and validation between the client and server, enhancing code reliability and safety.
+- **Authentication Integration:** Can integrate with authentication providers like next-auth or clerk, streamlining authentication processes.
+- **Compatibility with React Server Components (RSCs):** Works seamlessly with RSCs, enabling interactions even without JavaScript enabled, thus improving accessibility and user experience.
+
+## Use Cases
+
+- **Mutations:** Primarily used for mutations, such as updating a database directly server-side, without the need to manually call APIs for data updates.
+- **Counting Views on Posts:** Example of a creative use case where server actions are used to count views on posts, demonstrating flexibility in application.
+
+## Caveats
+
+- **Not for Data Fetching:** While server actions excel at handling mutations, they are not recommended for data fetching tasks. Instead, other methods like RSCs or client-side data fetching (e.g., react-query, SWR) are preferred for fetching data from the server.
+
+## Opinions and Recommendations
+
+- **Preference for API Routes:** Some users prefer sticking to traditional API routes for better control and clarity in handling data fetching and mutations separately.
+- **Usefulness with a Separate Backend:** There's a consensus that server actions might not be as useful when a separate backend already exists. In such cases, direct communication between the client and the backend might be more efficient.
+- **BFF Approach:** While server actions can be part of a Backend For Frontend (BFF) architecture, their utility in this setup might be limited compared to handling mutations directly on the separate backend.
+- **Security Concerns:** There's a need for further investigation into the security implications of using server actions extensively, especially in production environments.
+
+Overall, while server actions offer several advantages in simplifying mutation handling and improving developer experience, their use should be evaluated based on specific project requirements, security considerations, and compatibility with existing backend architectures.
+
+
+<!-- 
+import { PrismaClient } from '@prisma/client'
+
+const prismaClientSingleton = () => {
+  return new PrismaClient()
+}
+
+declare const globalThis: {
+  prismaGlobal: ReturnType<typeof prismaClientSingleton>;
+} & typeof global;
+
+const prisma = globalThis.prismaGlobal || prismaClientSingleton()
+
+export default prisma
+
+if (process.env.NODE_ENV !== 'production') globalThis.prismaGlobal = prisma -->
