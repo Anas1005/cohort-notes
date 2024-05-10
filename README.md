@@ -222,3 +222,31 @@ Hono : A library to mimic Express like functionalities in Cloudflare Worker Envi
     - Test your custom domain URL to ensure that the frontend application is accessible and functioning correctly.
 
 
+
+# Next.js vs. React
+
+## React Problems
+
+1. **Separation of Frontend and Backend:** React traditionally requires developers to set up separate frontend and backend projects, leading to additional complexity in managing codebases.
+
+2. **Routing:** React does not come with built-in routing capabilities, requiring developers to integrate third-party libraries or implement custom routing solutions.
+
+3. **SEO Optimization:** Initial HTML fetched on request often lacks meaningful content, impacting search engine optimization (SEO) efforts.
+
+4. **Waterfalling Problem:** React applications may suffer from the waterfalling problem, where the dependence of one request on previous requests can lead to inefficient loading times.
+
+## Next.js Offerings
+
+1. **SEO Optimization:** Next.js provides Server-Side Rendering (SSR) out of the box, enabling search engines to crawl and index content more effectively.
+
+2. **Full Stack Capability:** With API routes, Next.js allows developers to build full-stack applications seamlessly, handling both frontend and backend logic within the same codebase.
+
+3. **File-Based Routing:** Next.js simplifies routing by adopting a file-based routing system, making it intuitive to navigate between pages and components.
+
+4. **Bundle Optimization:** Next.js offers optimizations for bundling, resulting in faster loading times and improved performance for web applications.
+
+## Next.js Downsides
+
+1. **Server Dependency:** Next.js applications cannot be distributed via a Content Delivery Network (CDN) alone, as they require a server for SSR. This server dependency can be costly to maintain at large scales.
+
+2. **Opinionated:** Next.js follows a specific set of conventions and opinions, which may limit flexibility for developers who prefer more customization options.
