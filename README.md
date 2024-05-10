@@ -1,39 +1,35 @@
-**SQL vs NoSQL**
+# SQL vs NoSQL
 
+## SQL
 SQL databases are traditionally used in applications where data integrity, consistency, and complex queries are crucial. This includes financial applications, ERP systems, and applications with well-defined schemas.
 
+## NoSQL
 NoSQL databases are preferred in scenarios where high scalability, flexibility, and performance are required. This includes web applications dealing with large volumes of data, real-time analytics, IoT applications, and applications with evolving or dynamic schemas.
 
+---
 
+# SQL Injection
 
+- **Definition:** SQL injection is a security vulnerability.
+- **Attack Vector:** Attackers insert malicious SQL statements into input fields or queries.
+- **Objective:** Manipulate the backend database to gain unauthorized access, leak data, or manipulate data.
+- **Causes:** Often arises from improper input validation or handling of user input in SQL queries.
+- **Consequences:** Can lead to unauthorized data access, data leakage, data manipulation, or complete system compromise.
+- **Preventive Measures:** Use parameterized queries, input validation, and escape special characters to mitigate the risk.
 
+---
 
-**SQL Injection**
+# ORMs
 
-- Definition: SQL injection is a security vulnerability.
-- Attack Vector: Attackers insert malicious SQL statements into input fields or queries.
-- Objective: Manipulate the backend database to gain unauthorized access, leak data, or manipulate data.
-- Causes: Often arises from improper input validation or handling of user input in SQL queries.
-- Consequences: Can lead to unauthorized data access, data leakage, data manipulation, or complete system compromise.
-- Preventive Measures: Use parameterized queries, input validation, and escape special characters to mitigate the risk.
+- **Simpler Syntax:** ORMs offer an easier way to interact with databases by providing a simplified syntax, reducing the need for complex SQL queries.
+- **Abstraction over DB Queries:** ORMs abstract database queries into high-level programming constructs, making it easier to work with database operations using object-oriented paradigms.
+- **Portability:** This portability allows developers to switch between different database systems with minimal code changes, providing flexibility and reducing vendor lock-in.
+- **Security:** ORMs often include security features such as parameterized queries and input sanitization to prevent common vulnerabilities like SQL injection attacks.
+- **Automatic Migrations:** Automatically synchronize changes in the codebase with the database schema, ensuring consistency and reducing manual intervention.
 
+---
 
-
-
-**ORMs**
-
-- Simpler Syntax: ORMs offer an easier way to interact with databases by providing a simplified syntax, reducing the need for complex SQL queries.
-- Abstraction over DB Queries: ORMs abstract database queries into high-level programming constructs, making it easier to work with database operations using object-oriented paradigms.
-- Portability: This portability allows developers to switch between different database systems with minimal code changes, providing flexibility and reducing vendor lock-in.
-- Security: ORMs often include security features such as parameterized queries and input sanitization to prevent common vulnerabilities like SQL injection attacks.
-- Automatic Migrations: Automatically synchronize changes in the codebase with the database schema, ensuring consistency and reducing manual intervention.
-
-
-
-
-
-
-**Serverless Architecture**
+# Serverless Architecture
 
 Enables efficient and cost-effective application development and deployment.
 - Cloud computing model
@@ -58,11 +54,9 @@ Drawbacks:
 - Cold start problem
 - Limited control over infrastructure
 
+---
 
-
-
-
-**Cloudflare**
+# Cloudflare
 
 - Cloudflare Workers have their own runtime environment.
 - This environment is optimized for Cloudflare's global network, not Node.js.
@@ -78,13 +72,9 @@ Why?
 
 Hono : A library to mimic Express like functionalities in Cloudflare Worker Environment....
 
+---
 
-
-
-
-
-
-**AWS**
+# AWS
 
 - Rent Servers
 - Manage Domains
@@ -92,8 +82,7 @@ Hono : A library to mimic Express like functionalities in Cloudflare Worker Envi
 - Auto scaling
 - Create Kubernetes Cluster
 
-
-**Deploying BackEnd - AWS EC2 Instance SetUp**
+## Deploying BackEnd - AWS EC2 Instance SetUp
 
 1. Buy an EC2 instance in AWS Data Center Mumbai:
    - Log in to the AWS Management Console.
@@ -164,12 +153,7 @@ Hono : A library to mimic Express like functionalities in Cloudflare Worker Envi
      pm2 list
    - Verify that your Node.js application is listed and running.
 
-
-
-
-
-
-**Deploying FrontEnd - S3 Bucket and (CDN) CloudFront SetUp**
+## Deploying FrontEnd - S3 Bucket and (CDN) CloudFront SetUp
 
 1. Create React Frontend:
    - Develop your frontend application using React or any other frontend framework.
@@ -220,6 +204,7 @@ Hono : A library to mimic Express like functionalities in Cloudflare Worker Envi
 
 15. Test Your Custom Domain URL:
     - Test your custom domain URL to ensure that the frontend application is accessible and functioning correctly.
+
 
 
 
