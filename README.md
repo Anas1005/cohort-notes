@@ -218,7 +218,7 @@ Hono : A library to mimic Express like functionalities in Cloudflare Worker Envi
 
 3. **SEO Optimization:** Initial HTML fetched on request often lacks meaningful content, impacting search engine optimization (SEO) efforts.
 
-4. **Waterfalling Problem:** React applications may suffer from the waterfalling problem, where a request cannot be initiated until the repsonse of previous request is served which leads to inefficient loading times.
+4. **Waterfalling Problem:** React applications may suffer from the waterfalling problem, where a request cannot be initiated until the repsonse of previous request has been served which leads to inefficient loading times.
 
 ## Next.js Offerings
 
@@ -293,7 +293,7 @@ Server actions simplify mutation handling by serving as a mechanism for performi
 ## Use Cases
 
 - **Mutations:** Primarily used for mutations, such as updating a database directly server-side, without the need to manually call APIs for data updates.
-- **Counting Views on Posts:** Example of a creative use case where server actions are used to count views on posts, demonstrating flexibility in application.
+<!-- - **Counting Views on Posts:** Example of a creative use case where server actions are used to count views on posts, demonstrating flexibility in application. -->
 
 ## Caveats
 
@@ -325,3 +325,35 @@ const prisma = globalThis.prismaGlobal || prismaClientSingleton()
 export default prisma
 
 if (process.env.NODE_ENV !== 'production') globalThis.prismaGlobal = prisma -->
+---
+
+# MonoRepos
+
+Monorepos facilitate sharing common reusable code between multiple modules, enhancing collaboration between developers.
+
+## Traditional Approach in Pre-MonoRepo Days
+![Traditional Approach](image-2.png)
+
+## MonoRepo Approach
+![MonoRepo Approach](image-3.png)
+
+---
+
+## Turbo Repo - A Build Orchestrator
+
+Build Orchestrator means with just a single global build command, running all the build commands of each module in the turborepo.
+
+**Advantages:**
+- **Caches Build:** Ensures that unchanged modules do not get re-built on subsequent global rebuilds.
+- **Parallelization:** Can run multiple builds concurrently, enhancing resource utilization.
+- **Dependency Awareness:** Well-aware of all dependencies in the whole repo, knowing which modules depend on others.
+- **Remote Caching:** Prevents the redeployment of unchanged modules due to changes in other modules.
+
+**Traditional Build with Normal Monorepo (Sequential Builds)**
+![Normal Monorepo Build](image-7.png)
+
+**Turbo Build (Parallel Builds, also ensures if a parent module is dependent on some child, the child gets built first and then the parent)**
+![Turbo Build](image-9.png)
+
+**turbo.json (Defines Pipelines like what to run when)**
+![turbo.json](image-6.png)
