@@ -466,7 +466,7 @@ Drawbacks:
 
 
 
---------------------------------------------------------------Cloudflare-------------------------------------------------------
+--------------------------------------------------------------Cloudflare------------------------------------------------------
 •	Cloudflare Workers have their own runtime environment.
 •	This environment is optimized for Cloudflare's global network, not Node.js.
 •	Workers support JavaScript and TypeScript but have their own APIs and limitations.
