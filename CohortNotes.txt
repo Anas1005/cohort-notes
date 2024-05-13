@@ -459,9 +459,9 @@ Benefits:
 •	High availability
 
 Drawbacks:
-•	More Expensive at bigger scale
-• Cold start problem
-•	Limited control over infrastructure
+•	More Expensive at bigger scale.
+• Cold start problem.
+•	Limited control over infrastructure.
 
 
 
