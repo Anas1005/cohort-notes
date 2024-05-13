@@ -293,7 +293,7 @@ Server actions simplify mutation handling by serving as a mechanism for performi
 ## Use Cases
 
 - **Mutations:** Primarily used for mutations, such as updating a database directly server-side, without the need to manually call APIs for data updates.
-<!-- - **Counting Views on Posts:** Example of a creative use case where server actions are used to count views on posts, demonstrating flexibility in application. -->
+
 
 ## Caveats
 
