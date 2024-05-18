@@ -50,9 +50,10 @@ Benefits:
 - High availability
 
 Drawbacks:
+- Limited control over Infrastructure
 - More Expensive at bigger scale
 - Cold start problem
-- Limited control over infrastructure
+- Stateless (Server sleeps after serving each Request)
 
 ---
 
@@ -92,7 +93,7 @@ Hono : A library to mimic Express like functionalities in Cloudflare Worker Envi
 2. SSH into the EC2 instance in Git Bash:
    - Use the SSH command to connect to your EC2 instance:
      chmod 400 your-key.pem 
-     ssh -i your-key.pem ec2-user@your-instance-public-ip
+     ssh -i your-key.pem ubuntu@public-ip
 
 3. Allow internet connectivity:
    - Edit the /etc/resolv.conf file to add DNS nameservers:
@@ -357,3 +358,6 @@ Build Orchestrator means with just a single global build command, running all th
 
 **turbo.json (Defines Pipelines like what to run when)**
 ![turbo.json](image-6.png)
+
+---
+
